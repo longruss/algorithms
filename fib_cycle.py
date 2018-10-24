@@ -1,4 +1,6 @@
+import time
 num = input("Какое число найти? ")
+start_time = time.time()
 num = int(num)
 def fib(number):
 	fib_1 = 1
@@ -14,6 +16,7 @@ def fib(number):
 	print(str(number) + " число = " + str(res))
 
 fib = fib(num)
+print("--- %s seconds ---" % (time.time() - start_time))
 			
 
 def main(args):
