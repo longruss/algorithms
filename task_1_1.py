@@ -6,17 +6,15 @@ def compare(array):
 		start_time = time.time()
 		perest = 0
 		print(array)
-		compare = 0
 		#if len(array) < 101:
 		for n in range(1,len(array)):
 			i = n - 1
-			compare += 1
 			while (i > -1) and array[i+1] < array[i]:
 				array[i+1], array[i] = array[i], array[i+1]
 				i -= 1
 				perest += 1
 		print("\nКоличество перестановок = " + str(perest) + '\n')
-		print("Количество сравнений = " + str(perest + compare) + '\n')
+		print("Количество сравнений = " + str(perest + (len(array) - 1)) + '\n')
 		print("Отсортированный массив = " + str(array) + '\n')
 		print("--- %s seconds ---" % (time.time() - start_time) + '\n')
 		#else:
@@ -63,4 +61,3 @@ def menu():
 	else:
 		return
 print(compare(menu()))
-
