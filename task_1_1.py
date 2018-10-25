@@ -1,25 +1,5 @@
 import time
 import random
-
-def compare_rand(array):
-	try:
-		start_time = time.time()
-		perest = 0
-		print(array)
-		#compare = 0
-		for n in range(1,len(array)):
-			i = n - 1
-			while (i > -1) and array[i+1] < array[i]:
-				array[i+1], array[i] = array[i], array[i+1]
-				i -= 1
-				print(array)
-				perest += 1
-		print("\nКоличество перестановок = " + str(perest) + '\n')
-		#print("Количество сравнений = " + str(perest + compare) + '\n')
-		print("Конечный массив = " + str(array) + '\n')
-		print("--- %s seconds ---" % (time.time() - start_time) + '\n')
-	except TypeError:
-		print("Некорректный ввод")
 		
 def compare(array):
 	try:
@@ -79,3 +59,4 @@ def menu():
 	else:
 		return
 print(compare(menu()))
+
