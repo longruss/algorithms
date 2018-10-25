@@ -6,29 +6,33 @@ def compare(array):
 		start_time = time.time()
 		perest = 0
 		print(array)
-		#compare = 0
-		if len(array) < 50:
-			for n in range(1,len(array)):
-				i = n - 1
-				while (i > -1) and array[i+1] < array[i]:
-					array[i+1], array[i] = array[i], array[i+1]
-					i -= 1
-					print(array)
-					perest += 1
-			print("\nКоличество перестановок = " + str(perest) + '\n')
-			#print("Количество сравнений = " + str(perest + compare) + '\n')
-			print("Конечный массив = " + str(array) + '\n')
-			print("--- %s seconds ---" % (time.time() - start_time) + '\n')
-		else:
-			for n in range(1,len(array)):
-				i = n - 1
-				while (i > -1) and array[i+1] < array[i]:
-					array[i+1], array[i] = array[i], array[i+1]
-					i -= 1
-					perest += 1
-			print("\nКоличество перестановок = " + str(perest) + '\n')
-			print("Конечный массив = " + str(array) + '\n')
-			print("--- %s seconds ---" % (time.time() - start_time) + '\n')
+		compare = 0
+		#if len(array) < 101:
+		for n in range(1,len(array)):
+			i = n - 1
+			compare += 1
+			while (i > -1) and array[i+1] < array[i]:
+				array[i+1], array[i] = array[i], array[i+1]
+				i -= 1
+				perest += 1
+		print("\nКоличество перестановок = " + str(perest) + '\n')
+		print("Количество сравнений = " + str(perest + compare) + '\n')
+		print("Отсортированный массив = " + str(array) + '\n')
+		print("--- %s seconds ---" % (time.time() - start_time) + '\n')
+		#else:
+		#	for n in range(1,len(array)):
+		#		#while (i > -1) and array[i+1] < array[i]:
+		#		for k in range(n, len(array)):
+		#			if array[k-1] != 0 and array[k - 1] <= array[k]:
+		#				compare += 1
+        	#		while (i > -1) and array[i+1] < array[i]:
+		#			array[i+1], array[i] = array[i], array[i+1]
+		#			i -= 1
+		#			perest += 1
+		#print("\nКоличество перестановок = " + str(perest) + '\n')
+      	#print("Количество сравнений = " + str(perest + compare) + '\n')
+		#print("Отсортированный массив = " + str(array) + '\n')
+		#print("--- %s seconds ---" % (time.time() - start_time) + '\n')
 	except TypeError:
 		print("Некорректный ввод")
 
