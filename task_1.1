@@ -1,16 +1,29 @@
-arr = []
+import time
 size_arr = int(input("Введите размер массива"))
+arr = []
 i = 0
 while i < size_arr:
-  element = input("Введите " + str(i) + " элемент")
+  element = input("Введите " + str(i + 1) + " элемент")
   arr.append(int(element))
   i += 1
-j = 1
-for n in range(1,len(arr)):
-  i = n - 1 
-  while (i > -1) and arr[i+1] < arr[i]:
-      arr[i+1], arr[i] = arr[i], arr[i+1]
-      i -= 1
-      print(arr)
+start_time = time.time()
+def compare(array):
+  perest = 0
+  print(array)
+  print()
+  for n in range(1,len(array)):
+    i = n - 1
+    while (i > -1) and array[i+1] < array[i]:
+        array[i+1], array[i] = array[i], array[i+1]
+        i -= 1
+        #print(array)
+        perest += 1
+  print()
+  print("Количество перестановок = " + str(perest))
+  print()
+  print("Конечный массив = " + str(array))
+  print()
 
-print("Конечный массив = " + str(arr))
+comp = compare(arr)
+
+print("--- %s seconds ---" % (time.time() - start_time))
