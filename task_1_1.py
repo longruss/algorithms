@@ -1,3 +1,5 @@
+#insertion sort
+
 import time
 import random
 		
