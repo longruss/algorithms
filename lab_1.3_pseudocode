@@ -1,0 +1,11 @@
+numb_of_nominals = int(input("Введите число номиналов "))
+arr = []
+while i < numb_of_nominals:
+		arr.append(int(input(str(i + 1) + ": ")))
+		i += 1
+while n > 0:
+		numb_of_coins += (numb_of_money // arr[n-1])
+		numb_of_money = numb_of_money % arr[n-1]
+		if numb_of_money == 0:
+			break
+		n -= 1
