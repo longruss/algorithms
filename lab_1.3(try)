@@ -1,0 +1,44 @@
+def gnome_sort(array):
+	i = 1
+	while i < len(array):
+		if not i or array[i - 1] <= array[i]:
+			i+=1
+		else:
+			array[i], array[i - 1] = array[i - 1], array[i]
+			i-=1
+	return array
+
+def main(args):
+    return 0
+
+if __name__ == '__main__':
+	import sys
+	numb_of_nominals = int(input("Введите число номиналов "))
+	print("Введите эти номиналы \n")
+	arr = []
+	i = 0
+	while i < numb_of_nominals:
+		arr.append(int(input(str(i + 1) + ": ")))
+		i += 1
+	arr = gnome_sort(arr)
+	print("\n" + str(arr))
+	numb_of_money = int(input("Введите число, которое нужно разменять \n"))
+	numb_of_coins = 0
+	n = len(arr)
+	ost = 0
+	while n > 0:
+		numb_of_coins += (numb_of_money // arr[n-1])
+		numb_of_money = numb_of_money % arr[n-1]
+		j = 0
+		while j > 0:
+			if (n > 1) and (numb_of_money % arr[n-2] != 0) and (arr[n-2] > numb_of_money):
+				ost += numb_of_money
+				n -= 1
+				continue
+			elif numb_of_money == 0:
+				break
+			j -= 1
+		n -= 1
+	print(ost)
+	print (numb_of_coins)
+	sys.exit(main(sys.argv))
