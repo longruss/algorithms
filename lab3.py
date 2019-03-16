@@ -69,18 +69,20 @@ class AVLTree():
                     self.node.left.lrotate() # we're in case II
                     self.update_heights()
                     self.update_balances()
-                self.rrotate()
-                self.update_heights()
-                self.update_balances()
+                else:
+                    self.rrotate()
+                    self.update_heights()
+                    self.update_balances()
                 
             if self.balance < -1:
                 if self.node.right.balance > 0:  
                     self.node.right.rrotate() # we're in case III
                     self.update_heights()
                     self.update_balances()
-                self.lrotate()
-                self.update_heights()
-                self.update_balances()
+                else: 
+                    self.lrotate()
+                    self.update_heights()
+                    self.update_balances()
 
 
             
@@ -241,22 +243,27 @@ class AVLTree():
 # Usage example
 if __name__ == "__main__": 
     a = AVLTree()
-    print ("----- Inserting -------")
-    #inlist = [5, 2, 12, -4, 3, 21, 19, 25]
-    inlist = [7, 5, 2, 6, 3, 4, 1, 8, 9, 0]
-    for i in inlist: 
-        a.insert(i)
-         
-    a.display()
-    
-    print ("----- Deleting -------")
-    a.delete(3)
-    a.delete(4)
-    # a.delete(5) 
-    a.display()
-    
-    print ()
-    print ("Input            :", inlist )
-    print ("deleting ...       ", 3)
-    print ("deleting ...       ", 4)
-    print ("Inorder traversal:", a.inorder_traverse() )
+    key = 0
+    while key != 5:
+        print("1. Создание массива данных")
+        print("2. Удаление узла")
+        print("3. Вывод полученного дерева на экран")
+        print("5. Выход")
+        key = int(input("Выберите, что хотите сделать: "))
+        if key == 1:
+            numbers = list(map(int, input("Введите элементы: ").split()))
+            for i in numbers:
+                a.insert(i)
+        elif key == 2:
+            d = int(input("Выберите узел, который хотите удалить: "))
+            a.delete(d)
+            print()
+        elif key == 3:
+            a.display()
+            print()
+        elif key == 5:
+            break
+        else:
+            print("Неверный ввод")
+            print()
+            continue
